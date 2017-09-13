@@ -65,6 +65,7 @@ class PingClient {
 			}
 		} catch (Exception e) {
 			System.err.println("Exception while pinging server");
+			System.exit(1);
 		}
 		
 		printResults();
@@ -142,12 +143,12 @@ class PingClient {
 			max = (max > delays[i]) ? max : delays[i];
 			sum += delays[i];
 		} 
-		avg = (double)sum / (10-dropped);
+		avg = (double) sum / (10-dropped);
 
-		DecimalFormat formatPercent = new DecimalFormat("##%");
-		DecimalFormat formatDecimal = new DecimalFormat("###.#");
+		DecimalFormat percent = new DecimalFormat("##%");
+		DecimalFormat decimal = new DecimalFormat("###.#");
 		System.out.println("---- PING STATISTICS ----");
-		System.out.println("10 packets transmitted, " + (10-dropped) + " received, " + formatPercent.format(dropped/10.0) + " packet loss");
-		System.out.println("round-trip (ms) min/avg/max = " + min + "/" + formatDecimal.format(avg) + "/" + max); 
+		System.out.println("10 packets transmitted, " + (10-dropped) + " received, " + percent.format(dropped/10.0) + " packet loss");
+		System.out.println("round-trip (ms) min/avg/max = " + min + "/" + decimal.format(avg) + "/" + max); 
 	}	
 }
