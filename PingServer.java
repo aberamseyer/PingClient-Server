@@ -1,3 +1,8 @@
+/*
+ * IT383 programming assignment 1 part 2
+ * September 12, 2017
+ * author: Abe Ramseyer
+ */
 import java.util.Random;
 import java.io.*;
 import java.net.*;
