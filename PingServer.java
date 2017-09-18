@@ -12,15 +12,15 @@ import java.lang.NumberFormatException;
  * creates a simple ping server that echos back whatever is sent to it
  */
 class PingServer {
-	private static final double LOSS_RATE = 0.25;
-	private static final int AVERAGE_DELAY = 150;
-	private static Random gen;
-	private static String clientMessage = "";
-	private static String action = "";
-	private static int delay = -1;
-	private static String protocol;
-	private static int port = 0;
-	private static long seed = -1;
+	private static final double LOSS_RATE = 0.25; // the rate at which packets are dropped from the server
+	private static final int AVERAGE_DELAY = 150; // delay number from which our random delays will deviate
+	private static Random gen; // Random object for creating delays
+	private static String clientMessage = ""; // the message received from the client
+	private static String action = ""; // "delayed" or "not sent", depending on the server's choice
+	private static int delay = -1; // length in milliseconds the packet response was delayed
+	private static String protocol; // "TCP" or "UDP", specified as argument
+	private static int port = 0; // port to run on, specified as argument
+	private static long seed = -1; // seed for the Random object, specified as optional argument
 		
 	public static void main(String args[]) {
 		// check for correct number of arguments
